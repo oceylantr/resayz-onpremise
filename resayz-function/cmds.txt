@@ -1,0 +1,9 @@
+sudo docker build -t dosyaci_imaj .
+sudo docker run -it --name dosyaci -p 3000:3000 dosyaci_imaj
+sudo docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/playground:stable-amd64
+
+
+VMvare i NAT a çevirdik
+Dosyaci nin docker IP sini aldik, ifconfig ile...
+resayz js e bu ip yi yazdik
+
