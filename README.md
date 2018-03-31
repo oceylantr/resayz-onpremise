@@ -66,56 +66,51 @@ sudo docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tm
 ```
 After installation you will see Nuclio Playground server running. Now it is time to create our function on playground. Click New, name it "resayz", runtime is "Nodejs"
 
-## Verifiying installation
+![alt text](1_function_create.png)
 
-In file server, if you see an expression like that, everything is ok in that part:
+Now, starting to build function. Open index_nuclio.js and copy whole function js code and paste it to Nuclio function editor
 
-"Express server listening on port 3000"
+![alt text](2_function_create.png)
 
-
-
-
-
-
-
-
-We should see 8 containers running: Influxdb, Telegraf, Chronograf, Kapacitor, Influx CLI, Kapacitor CLI
-
-### Check frontend
-
-Check localhost/index.htm in browser on your host OS
-
-### Check backend
-
-Check localhost:8066 in browser on your host OS. If it is saying like "Selam dokka", HapiJS backend is serving main entrypoint of Rest part successfully
-
-### Check Chronograf
-
-Check localhost:8888 in browser on your host OS. It should be coming, Chronograf's black, kool page
-
-## Configuring Showcase
-
-Open localhost/index.htm and make 3 sets of moves:
-
-![alt text](client.png)
-
-In each set you will click Golf, Polo and Jetta buttons few times and wait for a 10-15 seconds until new set. We are making this for Telegraf to transfer clickstream values in periods, that peroiding is one of main features of timeseries db's
-
-Now everything is ready to make good-lookin graphs on Chronograf. Please open localhost:8888 and go to Dashboards link at left. Create a dashboard and add a Graph. Below Cell Editor, with Plus button make 3 queries and fill them with below sequentially
+Wait there, we have work. Navigate to Configure tab and in Build commands write dependecy package installation code:
 
 ```
-SELECT "value" FROM "telegraf"."autogen"."Golf" WHERE time > :dashboardTime:
-SELECT "value" FROM "telegraf"."autogen"."Polo" WHERE time > :dashboardTime:
-SELECT "value" FROM "telegraf"."autogen"."Jetta" WHERE time > :dashboardTime:
+npm install -g request imagejs
 ```
 
-![alt text](result.png)
+![alt text](3_function_create.png)
+
+open a terminal, and write that command to get ip of File-Server container, due to some route problems. We will write this IP to Post parameters of serverless function, note the IP-Address part:
+
+```
+sudo docker inspect cute-cat-server
+```
+
+![alt text](4_get_ip_of_file_server.png)
+
+Now, change IP at function line 35, where post url is:
+
+![alt text](5_change_post_ip.png)
+
+Everything is ready to launch; press Deploy and see Log section:
+
+![alt text](6_function_created.png)
+
+Now it is time to make a call to our serverless function. Resayz function will get an image from Internet, will resize to 300-200, then push to our file server named "Cute-Cat-Server" and we will see file coming to our File Server as an Upload sentence
+
+![alt text](7_finale.png)
+
+You can check it in browser with link localhost:3000/getthecat !!!
+
+
+![alt text](8_finale_2.png)
 
 ## Built With
 
-* [InfluxData Tick Stack](https://www.influxdata.com/time-series-platform/) - No:1 Timeseries db and Util pack
-* [HapiJS](https://hapijs.com/) - A NodeJS stack build in WalmartLabs with great plugin architecture
+* [Nodejs] () - 
+* [ExpressJS]() - A NodeJS stack for routing here
 * [Docker](https://www.docker.com/) - You know what it is I think
+* [Nuclio]() - On Premise serverless product, best I think !!
 
 ## Authors
 
@@ -127,6 +122,4 @@ This project is licensed under the GPL v3.0 - see the [LICENSE](LICENSE) file fo
 
 ## Acknowledgments
 
-* InfluxDB - Tick Stack (Thanks to https://github.com/influxdata/TICK-docker/blob/master/README.md)
-* HapiJS Rest Backend (Thanks to Joseph Jude when containerizing Hapi-Node backend https://jjude.com/hapijs-on-docker/)
-* Frontend Webserver Docker image (Thanks to https://hub.docker.com/r/taka0225/alpine-http-server/)
+* Containerizing File Server (Thanks to Joseph Jude when containerizing Hapi-Node backend https://jjude.com/hapijs-on-docker/)
