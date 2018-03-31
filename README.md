@@ -124,4 +124,4 @@ This project is licensed under the GPL v3.0 - see the [LICENSE](LICENSE) file fo
 
 ## Acknowledgments
 
-* Containerizing File Server (Thanks to Joseph Jude when containerizing Hapi-Node backend https://jjude.com/hapijs-on-docker/)
+* Containerizing File Server (Thanks to Joseph Jude when containerizing file server backend https://jjude.com/hapijs-on-docker/)
