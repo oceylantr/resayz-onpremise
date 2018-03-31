@@ -25,7 +25,6 @@ exports.handler = function(context, event) {
 
 			  	fs.readFile("cropped.jpg", function (err, content) {
 			        if (err) {
-			            //res.writeHead(400, {'Content-type':'text/html'})
 			            console.log(err);
 			            res.end("No such image");    
 			        } else {
@@ -40,19 +39,13 @@ exports.handler = function(context, event) {
 			        }
 			    });
 
-		        
-
-		        //var target = 'http://localhost:3000/upload/cropped.jpg';
-		        //var rs = fs.createReadStream("cropped.jpg");
-				//var ws = request.post(target);
+		       
 		    });
 
-		    /*res.contentType('image/jpeg');
-		    res.end(thumbnail, 'binary');*/
-		    return;
-		    //console.log('image bytes: %d', thumbnail);
+
 	    });
 
 	});
+	context.callback("success");
 
 };
