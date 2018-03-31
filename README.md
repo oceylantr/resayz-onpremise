@@ -107,8 +107,8 @@ You can check it in browser with link localhost:3000/getthecat !!!
 
 ## Built With
 
-* [Nodejs] () - 
-* [ExpressJS]() - A NodeJS stack for routing here
+* [Nodejs] (https://nodejs.org) - Crazy maestro js backend architecture
+* [ExpressJS]() - Popular NodeJS framework for routing here
 * [Docker](https://www.docker.com/) - You know what it is I think
 * [Nuclio]() - On Premise serverless product, best I think !!
 
