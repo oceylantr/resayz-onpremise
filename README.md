@@ -110,9 +110,9 @@ and new image at link localhost:3000/getthecat !!!
 ## Built With
 
 * [Nodejs](https://nodejs.org) - Crazy maestro js backend architecture
-* [ExpressJS]() - Popular NodeJS framework for routing here
+* [ExpressJS](https://expressjs.com/) - Popular NodeJS framework for routing here
 * [Docker](https://www.docker.com/) - You know what it is I think
-* [Nuclio]() - On Premise serverless product, best I think !!
+* [Nuclio](https://nuclio.io/) - On Premise serverless product, best I think !!
 
 ## Authors
 
