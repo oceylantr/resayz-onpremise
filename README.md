@@ -100,14 +100,16 @@ Now it is time to make a call to our serverless function. Resayz function will g
 
 ![alt text](7_finale.png)
 
-You can check it in browser with link localhost:3000/getthecat !!!
+You can check it in browser with old image at http://3.bp.blogspot.com/-sqSKVvNUFkU/U-nopbRhYlI/AAAAAAAANPg/_P7lU81GdDY/s1600/kedi-beslemek-isteyenler-icin-tavsiyeler.jpg
+
+and new image at link localhost:3000/getthecat !!!
 
 
 ![alt text](8_finale_2.png)
 
 ## Built With
 
-* [Nodejs] (https://nodejs.org) - Crazy maestro js backend architecture
+* [Nodejs](https://nodejs.org) - Crazy maestro js backend architecture
 * [ExpressJS]() - Popular NodeJS framework for routing here
 * [Docker](https://www.docker.com/) - You know what it is I think
 * [Nuclio]() - On Premise serverless product, best I think !!
